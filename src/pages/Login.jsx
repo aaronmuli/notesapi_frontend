@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {redirect, useNavigate} from 'react-router-dom';
-import {toast} from 'react-toastify';
 import {reset, login} from '../features/auth/authSlice';
 import Spinner from '../components/Spinner'
 
@@ -22,7 +21,7 @@ const Login = () => {
     
       useEffect(() => {
         if(isError) {
-          toast.error(message);
+            alert(message);
         };
         
         if(isSuccess || user) {
@@ -49,7 +48,7 @@ const Login = () => {
         e.preventDefault();
     
         if(!password && !email) {
-          toast.error('Please enter credentials');
+            alert('Please enter the credentials');
         }else {
           const userData = {
             email,
