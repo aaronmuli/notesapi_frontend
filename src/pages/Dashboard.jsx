@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { addNote, getAllNotes, deleteNote, updateNote, reset } from '../features/notes/notesSlice';
-import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 
 const Dashboard = () => {
@@ -23,7 +22,7 @@ const Dashboard = () => {
   
   useEffect(() => {
     if(isError) {
-      toast.error(message);
+      alert(message);
     }
       
     if(!user) {
